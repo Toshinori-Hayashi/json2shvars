@@ -1,5 +1,5 @@
 # json2shvars
-jsonファイル上の値をShellscript変数として登録する。
+jsonファイル上の値をShellscript変数として登録するためのライブラリ。
 
 ## 必須Lib
 
