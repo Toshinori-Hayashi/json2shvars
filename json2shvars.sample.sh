@@ -1,8 +1,8 @@
 #!/bin/sh
 # ##############################################################################
 #
-# @description ""
-# @name json2shvars.sh
+# @description "sample"
+# @name json2shvars.sample.sh
 # @author T.Hayashi@Rookie Inc
 # @version 1.0 2023/10/04
 # Copyright(c) 2023 Toshinoli-Hayashi
@@ -12,9 +12,11 @@
 # _DEBUG_=1
 #
 [ ${_DEBUG_} ] && echo "DEBUG MSG: ON" >&2
-#
-_MYDIR=$(dirname $0)
-_LIBDIR="${_MYDIR}/lib"
+
+# Required var
+_J2SVDIR=$(dirname $0)
+_J2SVLIB="${_J2SVDIR}/lib"
+
 
 # chk param
 if [ -z "${1}" ]; then
@@ -29,8 +31,8 @@ fi
 _jsonfile=${1}
 _key=${2}
 
-# include functions
-_FNCFILE="${_MYDIR}/functions.sh"
+# include lib
+_FNCFILE="${_J2SVDIR}/json2shvars.lib..sh"
 . ${_FNCFILE}
 
 # make configuration, load and delete

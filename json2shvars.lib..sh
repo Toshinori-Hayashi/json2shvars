@@ -1,8 +1,7 @@
 #!/bin/sh
 # ##############################################################################
 # Usage   : mkConf <conf json file> <1st key name>
-# Require : ${_MYDIR}
-# Require : ${_LIBDIR}
+# Require : ${_J2SVLIB}
 # Return  : conf temp file
 # make conf data to specified conf file name
 mkConf(){(
@@ -26,7 +25,7 @@ mkConf(){(
   # clear conf
   echo "" > ${__conftmp}
   /bin/sh                                                                       \
-    ${_LIBDIR}/parsrj.sh ${__jsonfile}                                          |
+    ${_J2SVLIB}/parsrj.sh ${__jsonfile}                                          |
     grep "$.${__key}"                                                           |
     sed "s/$\..*\.\([a-zA-Z0-9_-]*\[*[0-9]*\]*\) \(.*\)/\1=\"\2\"/"             |
     grep -v "\[.*\]"                                                            |
@@ -39,7 +38,7 @@ mkConf(){(
   [ ${_DEBUG_} ] && echo "mkConf Intermediate file contents: ${__dbg}" >&2
 
   /bin/sh                                                                       \
-    ${_LIBDIR}/parsrj.sh ${__jsonfile}                                          |
+    ${_J2SVLIB}/parsrj.sh ${__jsonfile}                                          |
     grep "$.${__key}"                                                           |
     sed "s/$\..*\.\(.*\) \(.*\)/\1/"                                            |
     grep "\[.*\]"                                                               |
@@ -49,7 +48,7 @@ mkConf(){(
     do
       echo "${__ll}=\" "  >> ${__conftmp}
       /bin/sh                                                                   \
-        ${_LIBDIR}/parsrj.sh ${__jsonfile}                                      |
+        ${_J2SVLIB}/parsrj.sh ${__jsonfile}                                      |
         grep "$.${__key}"                                                       |
         sed "s/$\..*\.\(.*\) \(.*\)/\1=\"\2\"/"                                 |
         grep "${__ll}"                                                          |
@@ -83,8 +82,8 @@ _MYNAME=$(basename $0|tr '[:lower:]' '[:upper:]')
 if [ ${_MYNAME} = "FUNCTIONS.SH" ]; then
   :
   _DEBUG_=1
-  _MYDIR=$(dirname $0)
-  _LIBDIR="${_MYDIR}/lib"
+  _J2SVDIR=$(dirname $0)
+  _J2SVLIB="${_J2SVDIR}/lib"
 
   [ ${_DEBUG_} ] && echo "START TEST ${_MYNAME}" >&2
 
