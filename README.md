@@ -8,4 +8,10 @@ Library of Register json to Shellscript variables
   - parsrj.sh
 
 
+## sample
 
+### run sample
+
+```sh ./sample.sh sample.json staging _TOKEN```
+
+```sh ./sample.sh sample.json production _TOKEN```
