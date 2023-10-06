@@ -7,10 +7,37 @@ Library of Register json to Shellscript variables
   - makrj.sh
   - parsrj.sh
 
+## how to use
+
+Please place the following files.
+
+  * json2shvars.lib..sh
+  * lib/makrj.sh
+  * lib/parsrj.sh
+
+Please set the following variables.
+
+  * _J2SVLIB
+    * Path to makrj.sh, parsrj.sh
 
 ## sample
 
-### run sample
+### sample code
+```
+# set 3rdparty Lib path
+_J2SVLIB="Path/to/lib"
+
+# include lib
+_FNCFILE="${_J2SVDIR}/json2shvars.lib.sh"
+. ${_FNCFILE}
+
+# make configuration, load and delete
+_configfile=$(mkConf ${_jsonfile} ${_tag})
+. ${_configfile}
+rm ${_configfile}
+```
+
+### run include sample.sh
 
 ```sh ./sample.sh sample.json staging _TOKEN```
 
