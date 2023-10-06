@@ -20,27 +20,34 @@ _J2SVLIB="${_J2SVDIR}/lib"
 
 # chk param
 if [ -z "${1}" ]; then
-  echo >&2 "Error: json2shvars: require conf json file name"
+  echo >&2 "Error: sample: require conf json file name"
   return 1
 fi
 if [ -z "${2}" ]; then
-  echo >&2 "Error: json2shvars: require 1st key name"
+  echo >&2 "Error: sample: require tag name"
+  return 1
+fi
+if [ -z "${3}" ]; then
+  echo >&2 "Error: sample: require key name"
   return 1
 fi
 # set var
 _jsonfile=${1}
-_key=${2}
+_tag=${2}
+_key=${3}
 
 # include lib
 _FNCFILE="${_J2SVDIR}/json2shvars.lib..sh"
 . ${_FNCFILE}
 
 # make configuration, load and delete
-_conf=$(mkConf ${_jsonfile} ${_key})
+_conf=$(mkConf ${_jsonfile} ${_tag})
 . ${_conf}
 rm ${_conf}
 
-echo "${_key} var _TOKEN ${_TOKEN}"
+
+_var=$(eval "echo \"\${${_key}}\"")
+echo "${_tag} var ${_key} ${_var}"
 
 
 
