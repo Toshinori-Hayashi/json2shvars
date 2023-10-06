@@ -37,7 +37,7 @@ _tag=${2}
 _key=${3}
 
 # include lib
-_FNCFILE="${_J2SVDIR}/json2shvars.lib..sh"
+_FNCFILE="${_J2SVDIR}/json2shvars.lib.sh"
 . ${_FNCFILE}
 
 # make configuration, load and delete
