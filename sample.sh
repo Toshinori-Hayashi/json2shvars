@@ -2,7 +2,7 @@
 # ##############################################################################
 #
 # @description "sample"
-# @name json2shvars.sample.sh
+# @name sample.sh
 # @author T.Hayashi@Rookie Inc
 # @version 1.0 2023/10/04
 # Copyright(c) 2023 Toshinoli-Hayashi
@@ -40,7 +40,7 @@ _conf=$(mkConf ${_jsonfile} ${_key})
 . ${_conf}
 rm ${_conf}
 
-echo "var _TOKEN ${_TOKEN}"
+echo "${_key} var _TOKEN ${_TOKEN}"
 
 
 
