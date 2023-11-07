@@ -1,5 +1,4 @@
 ![GitHub](https://img.shields.io/github/license/Toshinori-Hayashi/json2shvars)
-
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Toshinori-Hayashi/json2shvars)
 
 # json2shvars
