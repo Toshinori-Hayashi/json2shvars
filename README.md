@@ -4,6 +4,8 @@
 # json2shvars
 Library of Register json to Shellscript variables
 
+[ko1nksm/shdotenv](https://github.com/ko1nksm/shdotenv) is recommended for ***.env***
+
 ## requirement Lib
 
 - [@ShellShoccar-jpn/Parsrs](https://github.com/ShellShoccar-jpn/Parsrs)
